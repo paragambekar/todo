@@ -1,0 +1,29 @@
+{
+  "name": "todo",
+  "description": "Todo App using Node, Express &amp; MongoDB",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paragambekar/todo.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "Parag Ambekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paragambekar/todo/issues"
+  },
+  "homepage": "https://github.com/paragambekar/todo#readme",
+
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+
+}
