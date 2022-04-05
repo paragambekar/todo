@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/9863b744e9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="todo-container">
+
+        <h1>TODO APP</h1>
+
+        <form action="/action/create-list" method="post">
+            <label for="description">Description</label>
+            <div id="description">
+                <input id="description" type="text" name="description" placeholder="Add Task">
+                
+            </div>
+
+            <div id="category_date">
+                <div id="category">
+                    <label for="category">Category</label>
+
+                    <select name="category">
+                        <option>Choose a Category</option>
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="health">Health</option>
+                        <option value="others">Others</option>
+
+
+                    </select>
+                </div>
+
+                <div id="date">
+                    <label for="date"> Due Date</label>
+                    <input type="date" name="date">
+
+                </div>
+            </div>
+
+            <div id="buttons">
+                <button type="submit">
+                    <i class="fas fa-plus"></i>
+                    Add Task</button>
+                <button type="submit" form="tasks-list-form">
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Task</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div>
+        
+        <% for(let i of todo_list) { %>
+
+            <form action="/action/delete-list" method="post">
+
+            <div class="note">
+                <p> <%= i.id %> </p>
+                <p> <%= `description : ${i.description}` %> </p>
+                <p> <%= i.category %> </p>
+                <p> <%= i.date %> </p>
+                <!-- <i class="fas fa-trash-alt"></i> -->
+                <button type="submit" name="abc" value="<%= i.id %>">Delete</button>
+            </div>
+
+            </form>
+
+            <% }  %>
+
+        
+
+    </div>
+    
+</body>
+</html>

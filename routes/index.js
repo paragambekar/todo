@@ -9,6 +9,8 @@ const router = express.Router();
 
 router.get('/',homeController.home);
 
+router.use('/action',require('./action'));
+
 
 // export so it is availabe to index.js from our root folder 
 module.exports = router;

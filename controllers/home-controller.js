@@ -1,6 +1,21 @@
+const List = require("../models/list");
+
 module.exports.home = function(request,response){
 
-    return response.end('Express is up for TODO App');
-}
+    // console.log("----------*****",request,request.body);
+    List.find({}, function(error,todoList){
+        if(error){
+            console.log('error findind todolist');
+            return;
+        }
 
-// I also also be able to access this controller in routes so as to make use of it 
+        // console.log(todoList);
+
+        return response.render('home',{
+            todo_list : todoList, 
+        });
+
+    });
+}
+ 
+
