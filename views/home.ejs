@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO APP</title>
+
+    <!-- Google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Link stylesheet  -->
     <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Favicon  -->
+    <link rel="icon" type="image/png" href="/favicon/favicon.png">
+
+    <!-- Fontawesome icons  -->
     <script src="https://kit.fontawesome.com/9863b744e9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    <!-- Main container of Todo App  -->
     <div id="todo-container">
 
-        <h1>TODO APP</h1>
+        <h1 class="heading">TODO APP</h1>
 
+        <!-- Input form  -->
         <form action="/action/create-list" method="post">
-            <label for="description">Description</label>
+            
+            <!-- Description div containing text input  -->
             <div id="description">
-                <input id="description" type="text" name="description" placeholder="Add Task">
+                <label for="description">Description</label>
+                <input id="description" type="text" name="description" placeholder="Enter tasks to be done..." required>
                 
             </div>
 
+            <!-- Div containing category & to select a date  -->
             <div id="category_date">
                 <div id="category">
                     <label for="category">Category</label>
 
+                    <!-- Category Input  -->
                     <select name="category">
-                        <option>Choose a Category</option>
+                        <option value="n/a">Choose a Category</option>
                         <option value="work">Work</option>
                         <option value="personal">Personal</option>
                         <option value="health">Health</option>
@@ -36,6 +53,7 @@
                     </select>
                 </div>
 
+                <!-- Date Input  -->
                 <div id="date">
                     <label for="date"> Due Date</label>
                     <input type="date" name="date">
@@ -43,42 +61,54 @@
                 </div>
             </div>
 
+            <!-- Buttons Div  -->
             <div id="buttons">
-                <button type="submit">
+                <button type="submit" class="add-button">
                     <i class="fas fa-plus"></i>
                     Add Task</button>
-                <button type="submit" form="tasks-list-form">
-                    <i class="fas fa-trash-alt"></i>
-                    Delete Task</button>
-
             </div>
 
         </form>
+        <!-- End of Form  -->
 
-    </div>
 
-    <div>
-        
-        <% for(let i of todo_list) { %>
+        <!-- Div for displaying the notes  -->
+        <div>
+            
+            <!-- For loop to print every task from the todo_list  -->
+            <% for(let i of todo_list) { %>
+    
+                <form action="/action/delete-list" method="post">
+                 
+                <!-- Individual Note  -->
+                    <div class="note">
 
-            <form action="/action/delete-list" method="post">
-
-            <div class="note">
-                <p> <%= i.id %> </p>
-                <p> <%= `description : ${i.description}` %> </p>
-                <p> <%= i.category %> </p>
-                <p> <%= i.date %> </p>
-                <!-- <i class="fas fa-trash-alt"></i> -->
-                <button type="submit" name="abc" value="<%= i.id %>">Delete</button>
-            </div>
-
-            </form>
-
+                        <div class="desc-date-category">
+                            <div class="desc-date">
+                                <h3> <%= i.description %> </h3>
+                                <p> <%= i.date %> </p>
+                            </div>
+                            <div class="category">
+                                <p> <%= i.category %> </p>
+                                
+                            </div>
+                        </div>
+                        
+                        <button type="submit" name="id" value="<%= i.id %>"><i class="fas fa-trash-alt"></i></button>
+                        
+                        
+                    </div>
+    
+                </form>
+    
             <% }  %>
 
-        
+        </div>
+        <!-- End of Display div  -->
 
     </div>
+
+    
     
 </body>
 </html>

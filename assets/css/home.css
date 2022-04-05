@@ -1,27 +1,47 @@
-
-#todo-container{
-    margin: auto;
-    /* height: 80vh; */
-    width: 60vw;
-    border: 1px solid black;
+/* UI Colors  */
+:root{
+    --base:#ffdf00; 
+    --input-background : #fff44f ;
+    --note-color : #f1ff62 ;
+    --text-color : #000000;
+    --add-button-color : #ff2f00;
 }
 
-textarea{
-    height: 100px;
-    width:90%;
+
+body{
+    margin: 0;
+    background-color: var(--base);
+    font-family: 'Nunito', sans-serif;
+    color:var(--text-color);
+}
+
+/* Styles for inputs of the note i.e. Description, Category, Due date & Add Button  */
+#todo-container{
+    margin: auto;
+    width: 60vw;
+}
+
+.heading{
+    text-align: center;
+    font-size: 60px;
 }
 
 #description{
     margin:auto;
     width: 90%;
     padding: 1.5rem;
-    
-
 }
 
-#category_date{
-    display:flex;
-    justify-content: space-evenly;
+
+input[type = "text"]{
+    background-color: var(--input-background);
+    color:var(--text-color);
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+}
+
+select option{
+    font-size: 25px;
 }
 
 label{
@@ -34,21 +54,66 @@ select,input[type="date"]{
     padding: 5px;
 }
 
-i{
-    color:black;
-   
+.add-button{
+    background-color: var(--add-button-color);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    border-radius: .75rem;  
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    margin: 10px;
+}
+
+#category_date{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.category{
+    text-transform: uppercase;
+}
+
+.desc-date-category{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #buttons{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-button{
-    margin:10px;
-    height: 50px;
-}
 
+
+
+
+/* Styles for notes  */
 .note{
     border: 1px solid black;
+    background-color: var(--note-color);
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 9px 9px -1px rgba(0,0,0,0.42);
+    -moz-box-shadow: 7px 9px 9px -1px rgba(0,0,0,0.42);
+    box-shadow: 7px 9px 9px -1px rgba(0,0,0,0.42);
+}
+
+.note button{
+    margin:10px;
+    justify-content: flex-end;
+}
+
+.note i{
+    color: red;
+    font-size: 20px;
 }
